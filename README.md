@@ -67,7 +67,7 @@ print("Total: "+str(Total_DBs_attacher)+" Blocks: "+str(nBlocks))
 ... ...
 
 ````
-The program will merge the databases in otherDBs into mainDB. The code as-is is meant to set the first .db file in filenames.txt as mainDB and merge the others into this file. However, mainDB and otherDBs can be set normally, e.g. otherDBs = [obj1, obj2, ... objn]. If so, you need to comment out the pop statement (see above).
+The program will merge the databases in otherDBs into mainDB. The code as-is is meant to set the first .db file in filenames.txt as mainDB and merge the others into this file. However, mainDB and otherDBs can be set normally, e.g. otherDBs = [obj1, obj2, ... objn]. If so, you need to comment out the pop statement in #3. Database Merge Module (see above).
 
 ### Step 4
 #### If there are tables that don't need to be merged, set them in Define Functions (#3) get_table_names()
@@ -87,7 +87,7 @@ def get_table_names():
             continue
         if ("table_example2" in temp[i][0]):        #### Skips merging table "table_example1"
             continue
-        if ("table_example3" in temp[i][0]): #### Etc.
+        if ("table_example3" in temp[i][0]):        #### Etc.
             continue
         if ("table_example4" in temp[i][0]):        #### Etc.
             continue
