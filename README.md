@@ -2,7 +2,7 @@
 Script for merging thousands of identical SQLite databases. Based on original mergeScript.py by @gopherchucks. See the original here: https://github.com/gopherchucks/Database-Merging-SQLite3
 
 
-If you have thousands of identical databases with a number of column constraints that are causing you errors with the original merge script, this may be helpful. However, there are some aspects of this code that are specific to my use case. I have tried to document them here.
+If you have thousands of databases with a number of column constraints that are causing you errors with the original merge script, this may be helpful. However, there are some aspects of this code that are specific to my use case. I have tried to document them here.
 
 ### Essentially, this script differs from the original in three important respects:
 
