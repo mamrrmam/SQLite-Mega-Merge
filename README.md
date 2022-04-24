@@ -6,9 +6,9 @@ If you have thousands of databases with a number of column constraints that are 
 
 ### Essentially, this script differs from the original in three important respects:
 
-1) The databases are attached in blocks of ten to the "mainDB" for the merging process because SQLite3 can only handle ten attached databases at a time.
+1) Data are pre-processed prior to merging such that data from each table are copied into new tables with identical schema except that the columns do not have specific primary key, NOT NULL, or UNIQUE constraints. This may not be useful in your use case, but improves the likelihood that merges are sucessful.
 
-2) Data from each table are copied into new tables with identical schema except that the columns do not have specific primary key, NOT NULL, or UNIQUE constraints. This may not be useful in your use case.
+2) The databases are attached in blocks of ten to the "mainDB" for the merging process because SQLite3 can only handle ten attached databases at a time.
 
 3) The donor databases (databases that data is sent from to mainDB) **_are removed from the directory automatically after merging to conserve disk space._** A copy of the original data should therefore be kept elsewhere.
 
