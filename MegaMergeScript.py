@@ -329,11 +329,10 @@ for u in range(0, len(DBs_attacher)):                                         # 
     print("Now processing: "+str(u)+" of "+str(nBlocks))
     for n in range(0, len(DBs_attacher[u])):                                  # Sub-Block level iterator, n<=10 
         attach_database(DBs_attacher[u][n], u, n)                             # Attach databases within block
-        for i in range(0, len(listDB[u])):                                    # Merge databases loop e.g. for each database in this block
-            for j in range(0, len(listTable)):                                #  for each table in each database
-                columns = list_to_string(get_column_names(listTable[j]))      #   get each column for each table
-                merge_table(listTable[j], columns, listDB[u][n])              #   and insert rows from these columns, in this database, in the equivalent table in main
-            conn.commit()                                                     # Commit changes one last time after a database in the block is done
+        for j in range(0, len(listTable)):                                    # for each table in each database
+            columns = list_to_string(get_column_names(listTable[j]))          # get each column for each table
+            merge_table(listTable[j], columns, listDB[u][n])                  # and insert rows from these columns, in this database, in the equivalent table in main
+            conn.commit()                                                     # Commit changes 
         os.remove(f"{DBs_attacher[u][n]}")                                    # Removes merged db after the merge to conserve space on disk
     close_connection()                                                        # Close connection at end of each block of ten databases
 
